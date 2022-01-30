@@ -1,11 +1,12 @@
 i = File.read('input.txt')
 
 def transformation(input)
-  input.split.map(&:chars)
+  input.split.map(&:chars) #трансфомация строки в массив '10101' -> ['1', '0', '1', '0', '1']
 end
 
 def gamma(input)
-  gamma = transformation(input).transpose.map do |bit|
+  gamma = transformation(input).transpose.map do |bit| 
+    #transpose сортировка массива 2 на массива в массиве ['1', '0', '1', '0', '1'] -> [['1', '1', '1'], '0', '0', '0', ]
     count = bit.select.count {|bit| bit == "0" }
 
     count > bit.size / 2 ? '0' : '1'
