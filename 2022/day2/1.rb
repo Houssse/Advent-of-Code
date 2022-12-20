@@ -1,0 +1,6 @@
+input = File.read('input.txt')
+  .lines
+  .map { |i| i.strip.split}
+  .map {|a,b| [a.ord-'A'.ord+1, b.ord-'X'.ord+1] }
+
+p input.map { |a,b| 3*(((b+1)-a)%3) }.sum + input.map {|a,b| b }.sum
